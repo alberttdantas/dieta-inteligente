@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <ProjectReference Include="..\DietaInteligente.Domain\DietaInteligente.Domain.csproj" />
+	  <ProjectReference Include="..\DietaInteligente.Application\DietaInteligente.Application.csproj" />
+    <ProjectReference Include="..\DietaInteligente.Infrastructure\DietaInteligente.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

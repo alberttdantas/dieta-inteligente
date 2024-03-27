@@ -1,0 +1,6 @@
+@DietaInteligente.API_HostAddress = http://localhost:5136
+
+GET {{DietaInteligente.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

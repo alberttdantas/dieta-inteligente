@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DietaInteligente.Domain", "DietaInteligente.Domain\DietaInteligente.Domain.csproj", "{47283E26-A2F7-441F-A490-79A99A072B2A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DietaInteligente.Application", "DietaInteligente.Application\DietaInteligente.Application.csproj", "{43C89037-AEB7-4846-AE79-103400168058}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DietaInteligente.Infrastructure", "DietaInteligente.Infrastructure\DietaInteligente.Infrastructure.csproj", "{EE19EE96-1E64-489D-A911-4855DFEA50A0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DietaInteligente.API", "DietaInteligente.API\DietaInteligente.API.csproj", "{8E142FE9-E68D-4A13-AD2B-8237A34BCBDC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{7911072A-B602-4785-8DF0-924C6BB47360}"
+	ProjectSection(SolutionItems) = preProject
+		.gitIgnore = .gitIgnore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47283E26-A2F7-441F-A490-79A99A072B2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47283E26-A2F7-441F-A490-79A99A072B2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47283E26-A2F7-441F-A490-79A99A072B2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47283E26-A2F7-441F-A490-79A99A072B2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43C89037-AEB7-4846-AE79-103400168058}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43C89037-AEB7-4846-AE79-103400168058}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43C89037-AEB7-4846-AE79-103400168058}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43C89037-AEB7-4846-AE79-103400168058}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE19EE96-1E64-489D-A911-4855DFEA50A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE19EE96-1E64-489D-A911-4855DFEA50A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE19EE96-1E64-489D-A911-4855DFEA50A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE19EE96-1E64-489D-A911-4855DFEA50A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E142FE9-E68D-4A13-AD2B-8237A34BCBDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E142FE9-E68D-4A13-AD2B-8237A34BCBDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E142FE9-E68D-4A13-AD2B-8237A34BCBDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E142FE9-E68D-4A13-AD2B-8237A34BCBDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D82C92B3-7579-413B-932B-14A78FE11AB3}
+	EndGlobalSection
+EndGlobal
