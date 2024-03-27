@@ -15,7 +15,7 @@ public class Dieta
 
     public int Id { get; set; }
     public int UsuarioId { get; set; }
-    public Usuarios Usuarios { get; set; }
+    public Usuario Usuarios { get; set; }
     public DateTime Data { get; set; }
     public ICollection<DietaAlimento> DietasAlimento { get; set; }
 }

@@ -21,8 +21,8 @@ public class AssociateDietaAlimentoCommandHandler : IRequestHandler<AssociateDie
         
         if (success)
         {
-            return CommandResult.SuccessResult("Sucesso ao relacionar dieta e alimento");
+            return CommandResult.SuccessResult("Sucesso ao associar dieta e alimento");
         }
-        return CommandResult.FailureResult(new[] { "Falha ao relacionar dieta a alimento" });
+        return CommandResult.FailureResult(new[] { "Falha ao associar dieta a alimento" });
     }
 }
