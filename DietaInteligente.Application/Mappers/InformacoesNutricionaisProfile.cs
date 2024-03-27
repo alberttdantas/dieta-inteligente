@@ -10,8 +10,8 @@ public class InformacoesNutricionaisProfile : Profile
 {
     public InformacoesNutricionaisProfile()
     {
-        CreateMap<InformacoesNutricionais, InformacaoNutricionalViewModel>();
+        CreateMap<InformacaoNutricional, InformacaoNutricionalViewModel>();
 
-        CreateMap<InformacaoNutricionalInputModel, InformacoesNutricionais>();
+        CreateMap<InformacaoNutricionalInputModel, InformacaoNutricional>();
     }
 }
