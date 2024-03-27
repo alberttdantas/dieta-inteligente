@@ -1,8 +1,8 @@
 ﻿namespace DietaInteligente.Domain.Entities;
 
-public class Usuarios
+public class Usuario
 {
-    public Usuarios(string nome, string email, decimal peso, string objetivo, decimal altura)
+    public Usuario(string nome, string email, decimal peso, string objetivo, decimal altura)
     {
         Nome = nome;
         Email = email;
@@ -18,5 +18,5 @@ public class Usuarios
     public decimal Altura { get; set; }
     public string Objetivo { get; set; }
     public ICollection<Dieta> Dietas { get; set; }
-    public ICollection<RestricoesDieteticas> RestricoesDieteticas { get; set; }
+    public ICollection<RestricaoDietetica> RestricoesDieteticas { get; set; }
 }

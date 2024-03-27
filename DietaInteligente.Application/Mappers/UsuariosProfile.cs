@@ -10,8 +10,8 @@ public class UsuariosProfile : Profile
 {
     public UsuariosProfile()
     {
-        CreateMap<Usuarios, UsuarioViewModel>();
+        CreateMap<Usuario, UsuarioViewModel>();
 
-        CreateMap<UsuarioInputModel, Usuarios>();
+        CreateMap<UsuarioInputModel, Usuario>();
     }
 }

@@ -5,9 +5,9 @@ namespace DietaInteligente.Domain.Repositories;
 
 public interface IUsuarioRepository
 {
-    Task<Usuarios> BuscarUsuariosAsync();
-    Task<Usuarios> BuscarUsuarioAsync(int id);
-    Task CriarUsuarioAsync(string nome, string email, decimal peso, string objetivo, decimal altura);
-    Task AtualizarUsuarioAsync(int id);
-    Task DeletarUsuarioAsync(int id);
+    Task<Usuario> BuscarUsuariosAsync();
+    Task<Usuario> BuscarUsuarioAsync(int id);
+    Task<bool> CriarUsuarioAsync(Usuario usuario);
+    Task<bool> AtualizarUsuarioAsync(Usuario usuario);
+    Task<bool> DeletarUsuarioAsync(Usuario usuario);
 }

@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using MediatR;
 
-namespace DietaInteligente.Application.Commands.RestricoesDieteticas.Associate
+namespace DietaInteligente.Application.Commands.RestricoesDieteticas.Associate;
+
+public class AssociateRestricaoDieteticaCommand : IRequest<CommandResult>
 {
-    internal class AssociateRestricaoDieteticaCommand
+    public AssociateRestricaoDieteticaCommand(int usuarioId, int grupoAlimentarId)
     {
+        UsuarioId = usuarioId;
+        GrupoAlimentarId = grupoAlimentarId;
     }
+
+    public int UsuarioId { get; set; }
+    public int GrupoAlimentarId { get; set; }
 }

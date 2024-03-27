@@ -5,16 +5,16 @@ using MediatR;
 
 namespace DietaInteligente.Application.Commands.DietasAlimentos.Disassociate;
 
-public class DissasociateDietaAlimentoCommandHandler : IRequestHandler<DissasociateDietaAlimentoCommand, CommandResult>
+public class DisassociateDietaAlimentoCommandHandler : IRequestHandler<DisassociateDietaAlimentoCommand, CommandResult>
 {
     private readonly IDietaAlimentoRepository _dietaAlimentoRepository;
 
-    public DissasociateDietaAlimentoCommandHandler(IDietaAlimentoRepository dietaAlimentoRepository)
+    public DisassociateDietaAlimentoCommandHandler(IDietaAlimentoRepository dietaAlimentoRepository)
     {
         _dietaAlimentoRepository = dietaAlimentoRepository;
     }
 
-    public async Task<CommandResult> Handle(DissasociateDietaAlimentoCommand request, CancellationToken cancellationToken)
+    public async Task<CommandResult> Handle(DisassociateDietaAlimentoCommand request, CancellationToken cancellationToken)
     {
         var dietaAlimento = new DietaAlimento(request.DietaId, request.AlimentoId);
         var success = await _dietaAlimentoRepository.DesassociarDietaAlimentoAsync(dietaAlimento);

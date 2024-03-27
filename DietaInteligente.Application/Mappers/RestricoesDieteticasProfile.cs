@@ -10,8 +10,8 @@ public class RestricoesDieteticasProfile : Profile
 {
     public RestricoesDieteticasProfile()
     {
-        CreateMap<RestricoesDieteticas, RestricaoDieteticaViewModel>();
+        CreateMap<RestricaoDietetica, RestricaoDieteticaViewModel>();
 
-        CreateMap<RestricaoDieteticaInputModel, RestricoesDieteticas>();
+        CreateMap<RestricaoDieteticaInputModel, RestricaoDietetica>();
     }
 }

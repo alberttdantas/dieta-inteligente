@@ -3,9 +3,9 @@ using MediatR;
 
 namespace DietaInteligente.Application.Commands.DietasAlimentos.Disassociate;
 
-public class DissasociateDietaAlimentoCommand : IRequest<CommandResult>
+public class DisassociateDietaAlimentoCommand : IRequest<CommandResult>
 {
-    public DissasociateDietaAlimentoCommand(int dietaId, int alimentoId)
+    public DisassociateDietaAlimentoCommand(int dietaId, int alimentoId)
     {
         DietaId = dietaId;
         AlimentoId = alimentoId;

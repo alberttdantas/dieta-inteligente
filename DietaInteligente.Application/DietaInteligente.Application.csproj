@@ -13,10 +13,6 @@
     <Folder Include="Commands\GruposAlimentares\Create\" />
     <Folder Include="Commands\GruposAlimentares\Delete\" />
     <Folder Include="Commands\GruposAlimentares\Update\" />
-    <Folder Include="Commands\RestricoesDieteticas\Disassociate\" />
-    <Folder Include="Commands\Usuarios\Create\" />
-    <Folder Include="Commands\Usuarios\Delete\" />
-    <Folder Include="Commands\Usuarios\Update\" />
   </ItemGroup>
 
   <PropertyGroup>
