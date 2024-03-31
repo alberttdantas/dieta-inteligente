@@ -1,8 +1,8 @@
 ﻿namespace DietaInteligente.Domain.Entities;
 
-public class GruposAlimentares
+public class GrupoAlimentar
 {
-    public GruposAlimentares(string nome)
+    public GrupoAlimentar(string nome)
     {
         Nome = nome;
     }

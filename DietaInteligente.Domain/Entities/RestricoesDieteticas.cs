@@ -11,5 +11,5 @@ public class RestricaoDietetica
     public int UsuarioId { get; set; }
     public Usuario Usuario { get; set; }
     public int GrupoAlimentarId { get; set; }
-    public GruposAlimentares GrupoAlimentar { get; set; }
+    public GrupoAlimentar GrupoAlimentar { get; set; }
 }

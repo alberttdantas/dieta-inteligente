@@ -1,5 +1,7 @@
 ﻿
 
+using DietaInteligente.Domain.Enums;
+
 namespace DietaInteligente.Application.ViewModels;
 
 public class UsuarioViewModel
@@ -9,7 +11,7 @@ public class UsuarioViewModel
     public string? Email { get; set; }
     public decimal? Peso { get; set; }
     public decimal? Altura { get; set; }
-    public string? Objetivo { get; set; }
+    public Objetivos? Objetivo { get; set; }
     public virtual IEnumerable<DietaViewModel>? Dietas { get; set; }
     public virtual IEnumerable<RestricaoDieteticaViewModel>? RestricoesDieteticas { get; set; }
 

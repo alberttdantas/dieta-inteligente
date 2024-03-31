@@ -5,4 +5,5 @@ public class AlimentoInputModel
 {
     public string? Nome { get; set; }
     public int GrupoAlimentarId { get; set; }
+    public int InformacaoNutricionalId { get; set; }
 }

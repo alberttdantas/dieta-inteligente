@@ -1,4 +1,6 @@
 ﻿
+using DietaInteligente.Domain.Enums;
+
 namespace DietaInteligente.Application.InputModels;
 
 public class UsuarioInputModel
@@ -7,5 +9,5 @@ public class UsuarioInputModel
     public string? Email { get; set; }
     public decimal? Peso { get; set; }
     public decimal? Altura { get; set; }
-    public string? Objetivo { get; set; }
+    public Objetivos? Objetivo { get; set; }
 }

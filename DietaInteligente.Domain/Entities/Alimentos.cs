@@ -10,7 +10,8 @@ public class Alimento
 
     public int Id { get; set; }
     public int GrupoAlimentarId { get; set; }
-    public virtual GruposAlimentares GruposALimentares { get; set; }
+    public virtual GrupoAlimentar GruposAlimentares { get; set; }
     public string Nome { get; set; }
-    public InformacaoNutricional InformacoesNutricionais { get; set; }
+    public int InformacaoNutricionalId { get; set; }
+    public InformacaoNutricional InformacaoNutricional { get; set; }
 }
