@@ -19,7 +19,13 @@ public class UpdateDietaCommandHandler : IRequestHandler<UpdateDietaCommand, Com
 
     public async Task<CommandResult> Handle(UpdateDietaCommand request, CancellationToken cancellationToken)
     {
-        var dieta = _mapper.Map<Dieta>(request.DietaAlimento);
+        var dieta = _mapper.Map<Dieta>(request.DietaInput);
+
+        if (dieta == null)
+        {
+            return CommandResult.FailureResult(new[] { "Dieta não encontrada!" });
+        }
+
         var success = await _dietaRepository.AtualizarDietaAsync(dieta);
 
         if (success)
