@@ -1,7 +1,35 @@
+using DietaInteligente.Domain;
+using DietaInteligente.Infrastructure;
+using System.Reflection;
+using System.Text.Json.Serialization;
+
+IConfiguration _configuration = new ConfigurationBuilder()
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+    .AddEnvironmentVariables()
+    .Build();
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+var currentAssembly = Assembly.GetAssembly(typeof(Program))!;
+
+var configurationDbContext = new ConfigurationDbContext
+{
+    Assemblies = currentAssembly
+        .GetReferencedAssemblies()
+        .Where(e => e.FullName.StartsWith("DietaInteligente"))
+        .Select(Assembly.Load)
+        .Union(new[] { currentAssembly })
+        .ToList()
+};
+builder.Services.AddSingleton<IConfigurationDbContext>(configurationDbContext);
+
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+});
+
+builder.Services.AddMySql(_configuration);
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -16,29 +44,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
-
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
+public partial class Program { }
