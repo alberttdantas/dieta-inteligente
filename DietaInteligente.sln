@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens
 		.gitIgnore = .gitIgnore
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DietaInteligente.Tests", "DietaInteligente.tests\DietaInteligente.Tests.csproj", "{33A2BC1D-D469-46F5-A72D-9A40A53DC129}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{8E142FE9-E68D-4A13-AD2B-8237A34BCBDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E142FE9-E68D-4A13-AD2B-8237A34BCBDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E142FE9-E68D-4A13-AD2B-8237A34BCBDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33A2BC1D-D469-46F5-A72D-9A40A53DC129}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33A2BC1D-D469-46F5-A72D-9A40A53DC129}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33A2BC1D-D469-46F5-A72D-9A40A53DC129}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33A2BC1D-D469-46F5-A72D-9A40A53DC129}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
