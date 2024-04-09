@@ -2,10 +2,11 @@
 
 public class Alimento
 {
-    public Alimento(string nome, int grupoAlimentarId)
+    public Alimento(string nome, int grupoAlimentarId, int informacaoNutricionalId)
     {
         Nome = nome;
         GrupoAlimentarId = grupoAlimentarId;
+        InformacaoNutricionalId = informacaoNutricionalId;
     }
 
     public int Id { get; set; }
@@ -13,5 +14,5 @@ public class Alimento
     public virtual GrupoAlimentar GruposAlimentares { get; set; }
     public string Nome { get; set; }
     public int InformacaoNutricionalId { get; set; }
-    public InformacaoNutricional InformacaoNutricional { get; set; }
+    public virtual InformacaoNutricional InformacaoNutricional { get; set; }
 }

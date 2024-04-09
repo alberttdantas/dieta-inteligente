@@ -8,5 +8,5 @@ public interface IAlimentoRepository
     Task<Alimento> BuscarAlimentoAsync (int? id);
     Task<bool> InserirAlimentoAsync (Alimento alimento);
     Task<bool> DeletarAlimentoAsync (Alimento alimento);
-    Task<bool> AtualizarAlimento(Alimento alimento);
+    Task<bool> AtualizarAlimentoAsync(Alimento alimento);
 }

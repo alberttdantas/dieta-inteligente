@@ -2,9 +2,10 @@
 
 public class Dieta
 {
-    public Dieta()
+    public Dieta(int usuarioId, DateTime data)
     {
-        DietasAlimento = new List<DietaAlimento>();
+        UsuarioId = usuarioId;
+        Data = data;
     }
 
     public Dieta(int usuarioId)

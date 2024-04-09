@@ -10,8 +10,8 @@ public class GruposAlimentaresProfile : Profile
 {
     public GruposAlimentaresProfile()
     {
-        CreateMap<GruposAlimentares, GrupoAlimentarViewModel>();
+        CreateMap<GrupoAlimentar, GrupoAlimentarViewModel>();
 
-        CreateMap<GrupoAlimentarInputModel, GruposAlimentares>();
+        CreateMap<GrupoAlimentarInputModel, GrupoAlimentar>();
     }
 }
