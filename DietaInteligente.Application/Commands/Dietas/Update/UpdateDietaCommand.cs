@@ -6,10 +6,10 @@ namespace DietaInteligente.Application.Commands.Dietas.Update;
 
 public class UpdateDietaCommand : IRequest<CommandResult>
 {
-    public UpdateDietaCommand(DietaInputModel? dietaAlimento)
+    public UpdateDietaCommand(DietaInputModel? dietaInput)
     {
-        DietaAlimento = dietaAlimento;
+        DietaInput = dietaInput;
     }
 
-    public DietaInputModel? DietaAlimento { get; set; }
+    public DietaInputModel? DietaInput { get; set; }
 }

@@ -12,7 +12,7 @@ public class UsuarioViewModel
     public decimal? Peso { get; set; }
     public decimal? Altura { get; set; }
     public Objetivos? Objetivo { get; set; }
-    public virtual IEnumerable<DietaViewModel>? Dietas { get; set; }
-    public virtual IEnumerable<RestricaoDieteticaViewModel>? RestricoesDieteticas { get; set; }
+    public DietaViewModel? Dietas { get; set; }
+    public RestricaoDieteticaViewModel? RestricaoDietetica { get; set; }
 
 }

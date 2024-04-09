@@ -20,7 +20,7 @@ public class UpdateAlimentoCommandHandler : IRequestHandler<UpdateAlimentoComman
     public async Task<CommandResult> Handle(UpdateAlimentoCommand request, CancellationToken cancellationToken)
     {
         var alimento = _mapper.Map<Alimento>(request.AlimentoInput);
-        var success = await _alimentoRepository.AtualizarAlimento(alimento);
+        var success = await _alimentoRepository.AtualizarAlimentoAsync(alimento);
 
         if(success)
         {

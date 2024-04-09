@@ -19,6 +19,12 @@ public class DeleteDietaCommandHandler : IRequestHandler<DeleteDietaCommand, Com
     public async Task<CommandResult> Handle(DeleteDietaCommand request, CancellationToken cancellationToken)
     {
         var dieta = await _dietaRepository.BuscarDietaAsync(request.Id);
+
+        if (dieta == null)
+        {
+            return CommandResult.FailureResult(new[] { "Dieta não encontrada!" });
+        }
+
         var success = await _dietaRepository.DeletarDietaAsync(dieta);
 
         if (success)
