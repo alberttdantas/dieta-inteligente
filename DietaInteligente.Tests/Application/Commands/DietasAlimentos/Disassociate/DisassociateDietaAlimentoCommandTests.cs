@@ -5,9 +5,8 @@ namespace DietaInteligente.Tests.Application.Commands.DietasAlimentos.Disassocia
 
 public class DisassociateDietaAlimentoCommandTests
 {
-
     [Fact]
-    public void Command_ShouldSetPropertiesCorrectly()
+    public void Command_DietaAlimentoShouldSetPropertiesCorrectly()
     {
         // Arrange
         var dietaId = 1;

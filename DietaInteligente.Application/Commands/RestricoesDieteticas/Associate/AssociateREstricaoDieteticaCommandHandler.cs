@@ -21,8 +21,8 @@ public class AssociateRestricaoDieteticaCommandHandler : IRequestHandler<Associa
 
         if (success)
         {
-            return CommandResult.SuccessResult("Sucesso ao associar uma restrição a uma dieta");
+            return CommandResult.SuccessResult("Sucesso ao associar uma restrição a uma dieta!");
         }
-        return CommandResult.FailureResult(new[] { "Falha ao associar uma restrição a uma dieta" });
+        return CommandResult.FailureResult(new[] { "Falha ao associar uma restrição a uma dieta!" });
     }
 }

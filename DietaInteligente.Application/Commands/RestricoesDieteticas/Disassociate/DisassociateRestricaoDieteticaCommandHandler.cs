@@ -22,8 +22,8 @@ public class DisassociateRestricaoDieteticaCommandHandler : IRequestHandler<Disa
 
         if (success)
         {
-            return CommandResult.SuccessResult("Sucesso ao desassociar uma restricao de uma dieta");
+            return CommandResult.SuccessResult("Sucesso ao desassociar uma restricao de uma dieta!");
         }
-        return CommandResult.FailureResult(new[] { "Falha ao desassociar uma restricao de uma dieta" });
+        return CommandResult.FailureResult(new[] { "Falha ao desassociar uma restricao de uma dieta!" });
     }
 }

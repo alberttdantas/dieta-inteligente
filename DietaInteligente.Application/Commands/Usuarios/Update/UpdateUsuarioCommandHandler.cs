@@ -20,12 +20,18 @@ public class UpdateUsuarioCommandHandler : IRequestHandler<UpdateUsuarioCommand,
     public async Task<CommandResult> Handle(UpdateUsuarioCommand request, CancellationToken cancellationToken)
     {
         var usuario = _mapper.Map<Usuario>(request.UsuarioInput);
+
+        if (usuario == null)
+        {
+            return CommandResult.FailureResult(new[] { "Usuario não encontrado!" });
+        }
+
         var success = await _usuarioRepository.AtualizarUsuarioAsync(usuario);
 
         if (success)
         {
-            return CommandResult.SuccessResult("Sucesso ao atualizar dados do usuario");
+            return CommandResult.SuccessResult("Sucesso ao atualizar dados do usuario!");
         }
-        return CommandResult.FailureResult(new[] { "Falha ao atualizar dados do usuario" });
+        return CommandResult.FailureResult(new[] { "Falha ao atualizar dados do usuario!" });
     }
 }

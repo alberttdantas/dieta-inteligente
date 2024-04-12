@@ -21,12 +21,18 @@ public class UpdateInformacoesNutricionaisCommandHandler : IRequestHandler<Updat
     public async Task<CommandResult> Handle(UpdateInformacoesNutricionaisCommand request, CancellationToken cancellationToken)
     {
         var informacaoNutricional = _mapper.Map<InformacaoNutricional>(request.InformacaoNutricionalInput);
-        var success = await _informacaoNutricionalRepository.AtualizarInformacaoNutricional(informacaoNutricional);
+
+        if (informacaoNutricional == null)
+        {
+            return CommandResult.FailureResult(new[] { "Informação nutricional não encontrada!" });
+        }
+
+        var success = await _informacaoNutricionalRepository.AtualizarInformacaoNutricionalAsync(informacaoNutricional);
 
         if (success)
         {
-            return CommandResult.SuccessResult("Sucesso ao atualizar informações nutricionais");
+            return CommandResult.SuccessResult("Sucesso ao atualizar informação nutricional!");
         }
-        return CommandResult.FailureResult(new[] { "Falha ao atualizar informações nutricionais" });
+        return CommandResult.FailureResult(new[] { "Falha ao atualizar informação nutricional!" });
     }
 }

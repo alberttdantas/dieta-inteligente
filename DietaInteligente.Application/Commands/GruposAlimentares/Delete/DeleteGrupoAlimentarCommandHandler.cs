@@ -22,7 +22,7 @@ public class DeleteGrupoAlimentarCommandHandler : IRequestHandler<DeleteGrupoAli
 
         if (grupoAlimentar == null)
         {
-            return CommandResult.FailureResult(new[] { "Grupo alimentar não encontrada!" });
+            return CommandResult.FailureResult(new[] { "Grupo alimentar não encontrado!" });
         }
 
         var success = await _grupoAlimentarRepository.DeletarGrupoAlimentarAsync(grupoAlimentar);

@@ -6,7 +6,7 @@ namespace DietaInteligente.Tests.Application.Commands.DietasAlimentos.Associate;
 public class AssociateDietaAlimentoCommandTests
 {
     [Fact]
-    public void Command_ShouldSetPropertiesCorrectly()
+    public void Command_DietaAlimentoShouldSetPropertiesCorrectly()
     {
         // Arrange
         var dietaId = 1;

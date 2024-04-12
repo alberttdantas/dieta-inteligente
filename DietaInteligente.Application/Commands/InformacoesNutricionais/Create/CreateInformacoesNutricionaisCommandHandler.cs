@@ -20,11 +20,11 @@ public class CreateInformacoesNutricionaisCommandHandler : IRequestHandler<Creat
     public async Task<CommandResult> Handle(CreateInformacoesNutricionaisCommand request, CancellationToken cancellationToken)
     {
         var informacaoNutricional = _mapper.Map<InformacaoNutricional>(request.InformacaoNutricionalInput);
-        var success = await _informacaoNutricionalRepository.CriarInformacaoNutricional(informacaoNutricional);
+        var success = await _informacaoNutricionalRepository.CriarInformacaoNutricionalAsync(informacaoNutricional);
 
         if (success)
         {
-            return CommandResult.SuccessResult("Sucesso ao criar informação nutricional");
+            return CommandResult.SuccessResult("Sucesso ao criar informação nutricional!");
         }
         return CommandResult.FailureResult(new[] { "Falha ao criar informação nutricional" });
     }
