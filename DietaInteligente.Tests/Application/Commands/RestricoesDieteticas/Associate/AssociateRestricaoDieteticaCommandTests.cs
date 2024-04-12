@@ -1,12 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using DietaInteligente.Application.Commands.RestricoesDieteticas.Associate;
 
-namespace DietaInteligente.Tests.Application.Commands.RestricoesDieteticas.Associate
+namespace DietaInteligente.Tests.Application.Commands.RestricoesDieteticas.Associate;
+
+public class AssociateRestricaoDieteticaCommandTests
 {
-    internal class AssociateRestricaoDieteticaCommandTests
+    [Fact]
+    public void Command_RestricaoDieteticaShouldSetPropertiesCorrectly()
     {
+        // Arrange
+        var usuarioId = 1;
+        var grupoAlimentarId = 2;
+
+        // Act
+        var command = new AssociateRestricaoDieteticaCommand(usuarioId, grupoAlimentarId);
+
+        // Assert
+        Assert.Equal(usuarioId, command.UsuarioId);
+        Assert.Equal(grupoAlimentarId, command.GrupoAlimentarId);
+
     }
 }

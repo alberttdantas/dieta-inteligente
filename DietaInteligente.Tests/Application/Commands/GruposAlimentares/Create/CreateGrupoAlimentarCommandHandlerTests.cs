@@ -47,4 +47,29 @@ public class CreateGrupoAlimentarCommandHandlerTests
         _grupoAlimentarRepositoryMock.Verify(repo => repo.CriarGrupoAlimentarAsync(It.IsAny<GrupoAlimentar>()), Times.Once());
     }
 
+    [Fact]
+    public async void Handle_InvalidInputModel_ShouldReturnFailure()
+    {
+        // Arrange
+        var grupoAlimentarInputModel = new GrupoAlimentarInputModel
+        {
+            Nome = "Nome"
+        };
+
+        var command = new CreateGrupoAlimentarCommand(grupoAlimentarInputModel);
+        _mapperMock.Setup(m => m.Map<GrupoAlimentar>(It.IsAny<GrupoAlimentarInputModel>())).Returns((GrupoAlimentar)null);
+        _grupoAlimentarRepositoryMock.Setup(repo => repo.CriarGrupoAlimentarAsync(null)).ReturnsAsync(false);
+
+        // Act
+        var result = await _handler.Handle(command, new CancellationToken());
+
+
+        // Assert
+        Assert.False(result.Success);
+        Assert.NotEmpty(result.Errors);
+        _mapperMock.Verify(m => m.Map<GrupoAlimentar>(It.IsAny<GrupoAlimentarInputModel>()), Times.Once);
+        _grupoAlimentarRepositoryMock.Verify(repo => repo.CriarGrupoAlimentarAsync(null), Times.Once);
+
+    }
+
 }

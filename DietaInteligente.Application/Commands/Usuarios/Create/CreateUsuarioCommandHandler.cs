@@ -24,8 +24,8 @@ public class CreateUsuarioCommandHandler : IRequestHandler<CreateUsuarioCommand,
 
         if (success)
         {
-            return CommandResult.SuccessResult("Sucesso ao criar usuario");
+            return CommandResult.SuccessResult("Sucesso ao criar usuario!");
         }
-        return CommandResult.FailureResult(new[] { "Falha ao criar usuario" });
+        return CommandResult.FailureResult(new[] { "Falha ao criar usuario!" });
     }
 }

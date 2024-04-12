@@ -33,7 +33,7 @@ public class UpdateDietaCommandHandlerTests
 
         var dieta = new Dieta(dietaInputModel.UsuarioId, dietaInputModel.Data)
         {
-            Id = 10,
+            Id = 10
         };
         var command = new UpdateDietaCommand(dietaInputModel);
         _mapperMock.Setup(mapper => mapper.Map<Dieta>(dietaInputModel)).Returns(dieta);
