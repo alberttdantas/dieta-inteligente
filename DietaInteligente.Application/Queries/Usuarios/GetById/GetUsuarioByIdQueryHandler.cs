@@ -19,7 +19,7 @@ public class GetUsuarioByIdQueryHandler : IRequestHandler<GetUsuarioByIdQuery, U
 
     public async Task<UsuarioViewModel> Handle(GetUsuarioByIdQuery request, CancellationToken cancellationToken)
     {
-        var usuario = await _usuarioRepository.BuscarUsuariosAsync();
+        var usuario = await _usuarioRepository.BuscarUsuarioAsync(request.Id);
         return _mapper.Map<UsuarioViewModel>(usuario);
     }
 }

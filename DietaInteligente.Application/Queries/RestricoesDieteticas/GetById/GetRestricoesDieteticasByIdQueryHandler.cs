@@ -19,7 +19,7 @@ public class GetRestricoesDieteticasByIdQueryHandler : IRequestHandler<GetRestri
 
     public async Task<RestricaoDieteticaViewModel> Handle(GetRestricoesDieteticasByIdQuery request, CancellationToken cancellationToken)
     {
-        var restricaoDietetica = await _restricaoDieteticaRepository.BuscarRestricaoDietetica(request.UsuarioId);
+        var restricaoDietetica = await _restricaoDieteticaRepository.BuscarRestricaoDieteticaAsync(request.UsuarioId);
         return _mapper.Map<RestricaoDieteticaViewModel>(restricaoDietetica);
     }
 }
