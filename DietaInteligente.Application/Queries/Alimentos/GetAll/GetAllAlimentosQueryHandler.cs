@@ -11,7 +11,7 @@ public class GetAllAlimentosQueryHandler : IRequestHandler<GetAllAlimentosQuery,
     private readonly IMapper _mapper;
     private readonly IAlimentoRepository _alimentoRepository;
 
-    public GetAllAlimentosQueryHandler(IAlimentoRepository alimentoRepository, IMapper mapper)
+    public GetAllAlimentosQueryHandler(IMapper mapper, IAlimentoRepository alimentoRepository)
     {
         _mapper = mapper;
         _alimentoRepository = alimentoRepository;

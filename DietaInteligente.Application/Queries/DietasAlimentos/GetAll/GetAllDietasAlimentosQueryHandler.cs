@@ -6,7 +6,7 @@ using MediatR;
 
 namespace DietaInteligente.Application.Queries.DietasAlimentos.GetAll;
 
-internal class GetAllDietasAlimentosQueryHandler : IRequestHandler<GetAllDietasAlimentosQuery, IEnumerable<DietaAlimentoViewModel>>
+public class GetAllDietasAlimentosQueryHandler : IRequestHandler<GetAllDietasAlimentosQuery, IEnumerable<DietaAlimentoViewModel>>
 {
     private readonly IMapper _mapper;
     private readonly IDietaAlimentoRepository _dietaAlimentoRepository;

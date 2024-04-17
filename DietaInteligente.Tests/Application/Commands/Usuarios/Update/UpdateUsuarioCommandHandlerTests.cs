@@ -37,7 +37,6 @@ public class UpdateUsuarioCommandHandlerTests
 
         var usuario = new Usuario(usuarioInputModel.Nome, usuarioInputModel.Email, usuarioInputModel.Altura.Value, usuarioInputModel.Peso.Value, usuarioInputModel.Objetivo.Value)
         {
-            Altura = 50m
         };
 
         var command = new UpdateUsuarioCommand(usuarioInputModel);

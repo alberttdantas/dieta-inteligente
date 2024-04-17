@@ -4,9 +4,9 @@ using MediatR;
 
 namespace DietaInteligente.Application.Queries.Dietas.GetAll;
 
-public class GetAllDietaQuery : IRequest<IEnumerable<DietaViewModel>>
+public class GetAllDietasQuery : IRequest<IEnumerable<DietaViewModel>>
 {
-    public GetAllDietaQuery()
+    public GetAllDietasQuery()
     {
         
     }
