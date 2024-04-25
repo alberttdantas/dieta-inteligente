@@ -9,6 +9,10 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
@@ -16,6 +20,15 @@
 	  <ProjectReference Include="..\DietaInteligente.Domain\DietaInteligente.Domain.csproj" />
 	  <ProjectReference Include="..\DietaInteligente.Application\DietaInteligente.Application.csproj" />
     <ProjectReference Include="..\DietaInteligente.Infrastructure\DietaInteligente.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\Dietas\" />
+    <Folder Include="Controllers\DietasAlimentos\" />
+    <Folder Include="Controllers\GruposAlimentares\" />
+    <Folder Include="Controllers\InformacoesNutricionais\" />
+    <Folder Include="Controllers\Usuarios\" />
+    <Folder Include="Controllers\RestricoesDieteticas\" />
   </ItemGroup>
 
 </Project>

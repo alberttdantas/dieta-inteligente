@@ -1,5 +1,7 @@
 using DietaInteligente.Domain;
 using DietaInteligente.Infrastructure;
+using DietaInteligente.Infrastructure.DI;
+using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using System.Text.Json.Serialization;
 
@@ -21,6 +23,9 @@ var configurationDbContext = new ConfigurationDbContext
         .Union(new[] { currentAssembly })
         .ToList()
 };
+
+builder.Services.AddLibs(builder.Configuration, configurationDbContext);
+
 builder.Services.AddSingleton<IConfigurationDbContext>(configurationDbContext);
 
 builder.Services.AddControllers().AddJsonOptions(options =>
@@ -29,6 +34,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 });
 
 builder.Services.AddMySql(_configuration);
+builder.Services.AddRepositories();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -43,6 +49,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.MapControllers();
 
 app.Run();
 

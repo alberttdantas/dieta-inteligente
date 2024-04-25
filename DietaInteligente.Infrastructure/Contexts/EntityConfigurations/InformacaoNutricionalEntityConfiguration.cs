@@ -12,9 +12,10 @@ public class InformacaoNutricionalEntityConfiguration : IEntityTypeConfiguration
         builder.ToTable("InformacaoNutricional");
         builder.HasKey(i => i.AlimentoId);
 
-        builder.HasOne(i => i.ALimento)
+        builder.HasOne(i => i.Alimento)
             .WithOne(a => a.InformacaoNutricional)
-            .HasForeignKey<InformacaoNutricional>(i => i.AlimentoId);
+            .HasForeignKey<InformacaoNutricional>(i => i.AlimentoId)
+            .IsRequired();
 
         builder.Property(i => i.Calorias).IsRequired();
         builder.Property(i => i.Proteinas).IsRequired();

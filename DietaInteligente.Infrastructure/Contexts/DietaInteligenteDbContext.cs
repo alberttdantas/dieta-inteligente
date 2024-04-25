@@ -18,9 +18,9 @@ public class DietaInteligenteDbContext : DbContext
     public DbSet<RestricaoDietetica> RestricoesDieteticas { get; set; }
     public DbSet<Usuario> Usuarios { get; set; }
 
-    //protected override void OnModelCreating(ModelBuilder modelBuilder)
-    //{
-    //    modelBuilder.ApplyConfigurationsFromAssembly(typeof(DietaInteligenteDbContext).Assembly);
-    //    base.OnModelCreating(modelBuilder);
-    //}
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(DietaInteligenteDbContext).Assembly);
+        base.OnModelCreating(modelBuilder);
+    }
 }
