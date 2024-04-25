@@ -1,18 +1,29 @@
-﻿using DietaInteligente.Infrastructure.Contexts;
-using Microsoft.EntityFrameworkCore;
+﻿using DietaInteligente.Domain.Repositories;
+using DietaInteligente.Infrastructure.Repositories;
+using DietaInteligente.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DietaInteligente.Infrastructure;
-
 public static class DependencyInjection
 {
-    public static IServiceCollection AddMySql(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddLibs(this IServiceCollection services, IConfiguration configuration, ConfigurationDbContext configurationDbContext)
     {
-        var connectionString = configuration.GetConnectionString("AppDbConnectionString");
+        // Adicionando AutoMapper
+        services.AddAutoMapper(configurationDbContext.Assemblies.ToArray());
 
-        services.AddDbContext<DietaInteligenteDbContext>(options =>
-            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+        // Adicionando MediatR
+        services.AddMediatR(cfg =>
+        {
+            foreach (var assembly in configurationDbContext.Assemblies)
+            {
+                cfg.RegisterServicesFromAssembly(assembly);
+            }
+        });
+
+        // Adicionando o AlimentoRepository
+        services.AddScoped<IAlimentoRepository, AlimentoRepository>();
+
+        // services.AddScoped<IOutroRepository, OutroRepository>();
 
         return services;
     }
