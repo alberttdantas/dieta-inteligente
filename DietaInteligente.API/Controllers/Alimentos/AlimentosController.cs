@@ -8,65 +8,69 @@ using DietaInteligente.Application.Queries.Alimentos.GetById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DietaInteligente.Api.Controllers
+namespace DietaInteligente.Api.Controllers;
+
+[ApiController]
+[Route("api/alimentos")]
+public class AlimentosController : ControllerBase
 {
-    [ApiController]
-    [Route("api/alimentos")]
-    public class AlimentosController : ControllerBase
+    private readonly IMediator _mediator;
+
+    public AlimentosController(IMediator mediator) : base()
     {
-        private readonly IMediator _mediator;
+        _mediator = mediator;
+    }
 
-        public AlimentosController(IMediator mediator)
-        {
-            _mediator = mediator;
-        }
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+    {
+        var query = new GetAllAlimentosQuery();
+        var alimentos = await _mediator.Send(query);
 
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
-        {
-            var query = new GetAllAlimentosQuery();
-            var alimentos = await _mediator.Send(query);
-            return Ok(alimentos);
-        }
+        return Ok(alimentos);
+    }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
-        {
-            var query = new GetAlimentoByIdQuery(id);
-            var alimento = await _mediator.Send(query);
-            if (alimento == null)
-                return NotFound();
-            return Ok(alimento);
-        }
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById(int id)
+    {
+        var query = new GetAlimentoByIdQuery(id);
+        var alimento = await _mediator.Send(query);
+        if (alimento == null)
+            return NotFound();
 
-        [HttpPost]
-        public async Task<IActionResult> Create([FromBody] AlimentoInputModel inputModel)
-        {
-            var command = new CreateAlimentoCommand(inputModel);
-            var result = await _mediator.Send(command);
-            if (!result.Success)
-                return BadRequest(result.Errors);
-            return Ok("Alimento is created.");
-        }
+        return Ok(alimento);
+    }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update([FromBody] AlimentoInputModel inputModel)
-        {
-            var command = new UpdateAlimentoCommand(inputModel);
-            var result = await _mediator.Send(command);
-            if (!result.Success)
-                return BadRequest(result.Errors);
-            return Ok("Alimento is updated.");
-        }
+    [HttpPost]
+    public async Task<IActionResult> Create([FromBody] AlimentoInputModel inputModel)
+    {
+        var command = new CreateAlimentoCommand(inputModel);
+        var result = await _mediator.Send(command);
+        if (!result.Success)
+            return BadRequest(result.Errors);
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            var command = new DeleteAlimentoCommand(id);
-            var result = await _mediator.Send(command);
-            if (!result.Success)
-                return BadRequest(result.Errors);
-            return Ok("Alimento is deleted.");
-        }
+        return Ok("Alimento criado");
+    }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update([FromBody] AlimentoInputModel inputModel)
+    {
+        var command = new UpdateAlimentoCommand(inputModel);
+        var result = await _mediator.Send(command);
+        if (!result.Success)
+            return BadRequest(result.Errors);
+
+        return Ok("Alimento atualizado");
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var command = new DeleteAlimentoCommand(id);
+        var result = await _mediator.Send(command);
+        if (!result.Success)
+            return BadRequest(result.Errors);
+
+        return Ok("Alimento deleto");
     }
 }

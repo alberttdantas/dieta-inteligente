@@ -22,13 +22,4 @@
     <ProjectReference Include="..\DietaInteligente.Infrastructure\DietaInteligente.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\Dietas\" />
-    <Folder Include="Controllers\DietasAlimentos\" />
-    <Folder Include="Controllers\GruposAlimentares\" />
-    <Folder Include="Controllers\InformacoesNutricionais\" />
-    <Folder Include="Controllers\Usuarios\" />
-    <Folder Include="Controllers\RestricoesDieteticas\" />
-  </ItemGroup>
-
 </Project>

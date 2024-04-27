@@ -3,6 +3,11 @@ using DietaInteligente.Infrastructure.Repositories;
 using DietaInteligente.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using DietaInteligente.Infrastructure.Repositories.Dietas;
+using DietaInteligente.Infrastructure.Repositories.GruposAlimentares;
+using DietaInteligente.Infrastructure.Repositories.InformacoesNutricionais;
+using DietaInteligente.Infrastructure.Repositories.RestricoesDieteticas;
+using DietaInteligente.Infrastructure.Repositories.Usuarios;
 
 public static class DependencyInjection
 {
@@ -20,10 +25,13 @@ public static class DependencyInjection
             }
         });
 
-        // Adicionando o AlimentoRepository
         services.AddScoped<IAlimentoRepository, AlimentoRepository>();
-
-        // services.AddScoped<IOutroRepository, OutroRepository>();
+        services.AddScoped<IDietaRepository, DietaRepository>();
+        services.AddScoped<IDietaAlimentoRepository, DietaAlimentoRepository>();
+        services.AddScoped<IGrupoAlimentarRepository, GrupoAlimentarRepository>();
+        services.AddScoped<IInformacaoNutricionalRepository, InformacaoNutricionalRepository>();
+        services.AddScoped<IRestricaoDieteticaRepository, RestricaoDieteticaRepository>();
+        services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
         return services;
     }
