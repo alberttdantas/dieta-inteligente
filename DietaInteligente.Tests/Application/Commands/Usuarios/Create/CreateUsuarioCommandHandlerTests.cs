@@ -3,6 +3,7 @@ using AutoMapper;
 using DietaInteligente.Application.Commands.Usuarios.Create;
 using DietaInteligente.Application.InputModels;
 using DietaInteligente.Domain.Entities;
+using DietaInteligente.Domain.Enums;
 using DietaInteligente.Domain.Repositories;
 using Moq;
 

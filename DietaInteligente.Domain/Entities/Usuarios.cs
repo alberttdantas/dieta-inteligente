@@ -1,9 +1,14 @@
 ﻿using DietaInteligente.Domain.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace DietaInteligente.Domain.Entities;
 
 public class Usuario
 {
+    public Usuario()
+    {
+    }
+
     public Usuario(string nome, string email, decimal peso, decimal altura, Objetivos objetivos)
     {
         Nome = nome;
@@ -19,6 +24,7 @@ public class Usuario
     public decimal Peso { get; set; }
     public decimal Altura { get; set; }
     public Objetivos Objetivos { get; set; }
+    [EnumDataType(typeof(Objetivos))]
     public ICollection<Dieta> Dietas { get; set; }
     public ICollection<RestricaoDietetica> RestricoesDieteticas { get; set; }
 }
