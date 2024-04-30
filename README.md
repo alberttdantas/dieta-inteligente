@@ -32,11 +32,11 @@ MySQL é utilizado como o sistema de gerenciamento de banco de dados.
 ## Executando o Projeto
 Para executar o projeto, siga os passos abaixo:
 
-1.Clone o repositório.
-2. Abra o terminal na pasta do projeto.
-3. Execute o comando dotnet restore para restauras os pacotes necessários.
-4. Configure a ConnectionString no arquivo appsettings.json.
-5. Execute o comando dotnet run para iniciar a API.
+1. Clone o repositório.
+3. Abra o terminal na pasta do projeto.
+5. Execute o comando dotnet restore para restauras os pacotes necessários.
+7. Configure a ConnectionString no arquivo appsettings.json.
+8. Execute o comando dotnet run para iniciar a API.
 
 Para rodar o projeto, é necessário configurar a `ConnectionString` no arquivo `appsettings.json` para apontar para o seu banco de dados MySQL local.
 
