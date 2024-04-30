@@ -42,11 +42,17 @@ public class DietasController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] DietaInputModel inputModel)
     {
+        if (inputModel == null)
+        {
+            return BadRequest("O modelo de entrada não pode ser nulo.");
+        }
+
         var command = new CreateDietaCommand(inputModel);
         var result = await _mediator.Send(command);
         if (!result.Success)
             return BadRequest(result.Errors);
-        return Ok("Dieta criada");
+
+        return Ok(result.Message);
     }
 
     [HttpPut("{id}")]
