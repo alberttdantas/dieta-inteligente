@@ -22,11 +22,6 @@ public class DietaRepository : IDietaRepository
 
     public async Task<Dieta> BuscarDietaAsync(int id)
     {
-        if (id == null)
-        {
-            throw new ArgumentNullException(nameof(id));
-        }
-
         return await _dbContext.Set<Dieta>().FindAsync(id);
     }
 
@@ -37,7 +32,7 @@ public class DietaRepository : IDietaRepository
             throw new ArgumentNullException(nameof(dieta));
         }
 
-        _dbContext.Set<Dieta>().Remove(dieta);
+        _dbContext.Set<Dieta>().AddAsync(dieta);
         return await _dbContext.SaveChangesAsync() > 0;
     }
 
