@@ -9,7 +9,8 @@ public class AlimentosProfile : Profile
 {
     public AlimentosProfile()
     {
-        CreateMap<Alimento, AlimentoViewModel>();
+        CreateMap<Alimento, AlimentoViewModel>()
+            .ForMember(dest => dest.InformacoesNutricionais, opt => opt.MapFrom(src => src.InformacaoNutricional));
 
         CreateMap<AlimentoInputModel, Alimento>();
     }

@@ -28,7 +28,7 @@ public class GetInformacaoNutricionalByIdQueryHandlerTests
         // Arrange
         var alimentoId = 1;
         var informacaoNutricional = new InformacaoNutricional(alimentoId, 100, 100, 100, 100, 100);
-        var informacaoNutricionalViewModel = new InformacaoNutricionalViewModel { AlimentoId = alimentoId, Alimentos = new AlimentoViewModel(), Calorias = 100, Carboidratos = 100, Fibras = 100, Gorduras = 100, Proteinas = 100 };
+        var informacaoNutricionalViewModel = new InformacaoNutricionalViewModel { AlimentoId = alimentoId, Calorias = 100, Carboidratos = 100, Fibras = 100, Gorduras = 100, Proteinas = 100 };
 
         _informacaoNutricionalRepositoryMock.Setup(repo => repo.BuscarInformacaoNutricionalAsync(alimentoId)).ReturnsAsync(informacaoNutricional);
         _mapperMock.Setup(m => m.Map<InformacaoNutricionalViewModel>(It.IsAny<InformacaoNutricional>())).Returns(informacaoNutricionalViewModel);

@@ -16,7 +16,10 @@ namespace DietaInteligente.Infrastructure.Repositories
 
         public async Task<IEnumerable<Alimento>> BuscarAlimentosAsync()
         {
-            return await _dbContext.Set<Alimento>().ToListAsync();
+            return await _dbContext.Alimentos
+                .Include(a => a.GruposAlimentares)
+                .Include(a => a.InformacaoNutricional)
+                .ToListAsync();
         }
 
         public async Task<Alimento> BuscarAlimentoAsync(int? id)

@@ -1,4 +1,6 @@
-﻿namespace DietaInteligente.Domain.Entities;
+﻿using System.Text.Json.Serialization;
+
+namespace DietaInteligente.Domain.Entities;
 
 public class InformacaoNutricional
 {
