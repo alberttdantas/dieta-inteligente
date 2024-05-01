@@ -35,8 +35,8 @@ public class GetAllInformacoesNutricionaisQueryHandlerTests
 
         var informacoesNutricionaisViewModel = new List<InformacaoNutricionalViewModel>
         {
-            new InformacaoNutricionalViewModel { AlimentoId = 1, Alimentos = new AlimentoViewModel(), Calorias = 100, Carboidratos = 100, Fibras = 100, Gorduras = 100, Proteinas = 100 },
-            new InformacaoNutricionalViewModel { AlimentoId = 2, Alimentos = new AlimentoViewModel(), Calorias = 100, Carboidratos = 100, Fibras = 100, Gorduras = 100, Proteinas = 100 }
+            new InformacaoNutricionalViewModel { AlimentoId = 1, Calorias = 100, Carboidratos = 100, Fibras = 100, Gorduras = 100, Proteinas = 100 },
+            new InformacaoNutricionalViewModel { AlimentoId = 2, Calorias = 100, Carboidratos = 100, Fibras = 100, Gorduras = 100, Proteinas = 100 }
         };
 
         _informacaoNutricionalRepositoryMock.Setup(repo => repo.BuscarInformacoesNutricionaisAsync()).ReturnsAsync(informacoesNutricionais);

@@ -8,13 +8,6 @@ public class InformacaoNutricionalViewModelTests
     [Fact]
     public void InformacaoNutricionalViewModel_ValidData_ShouldPassValidation()
     {
-        // Arrange
-        var alimentoViewModel = new AlimentoViewModel
-        {
-            Id = 1,
-            Nome = "Arroz",
-        };
-
         var informacaoNutricionalViewModel = new InformacaoNutricionalViewModel
         {
             AlimentoId = 1,
@@ -23,12 +16,10 @@ public class InformacaoNutricionalViewModelTests
             Gorduras = 100m,
             Carboidratos = 100m,
             Fibras = 100m,
-            Alimentos = alimentoViewModel
         };
 
         // Act
         var id = informacaoNutricionalViewModel.AlimentoId;
-        var nomeAlimento = informacaoNutricionalViewModel.Alimentos.Nome;
         var calorias = informacaoNutricionalViewModel.Calorias;
         var proteinas = informacaoNutricionalViewModel.Proteinas;
         var gorduras = informacaoNutricionalViewModel.Gorduras;
@@ -37,7 +28,6 @@ public class InformacaoNutricionalViewModelTests
 
         // Assert
         Assert.Equal(1, id);
-        Assert.Equal("Arroz", nomeAlimento);
         Assert.Equal(100m, calorias);
         Assert.Equal(100m, proteinas);
         Assert.Equal(100m, gorduras);

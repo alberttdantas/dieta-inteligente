@@ -27,17 +27,10 @@ public class DietaAlimentoViewModelTests
             UsuarioId = 1
         };
 
-        var grupoAlimentarViewModel = new GrupoAlimentarViewModel
-        {
-            Id = 1,
-            Nome = "Frutas"
-        };
-
         var alimentoViewModel = new AlimentoViewModel
         {
             Id = 2,
             Nome = "Maçã",
-            GrupoAlimentar = grupoAlimentarViewModel,
             InformacoesNutricionais = new InformacaoNutricionalViewModel { AlimentoId = 2, Calorias = 52 }
         };
 

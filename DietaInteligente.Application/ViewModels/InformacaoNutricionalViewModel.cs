@@ -4,7 +4,6 @@ namespace DietaInteligente.Application.ViewModels;
 public class InformacaoNutricionalViewModel
 {
     public int AlimentoId { get; set; }
-    public virtual AlimentoViewModel? Alimentos { get; set; }
     public decimal Calorias { get; set; }
     public decimal Proteinas { get; set; }
     public decimal Gorduras { get; set; }
