@@ -35,8 +35,8 @@ public class GetAlimentosByDietaQueryHandlerTests
 
         var dietaAlimentosViewModel = new List<DietaAlimentoViewModel>
         {
-            new DietaAlimentoViewModel { DietaId = dietaId, Alimentos = new List<AlimentoViewModel>(), QuantidadedeGramas = 100m },
-            new DietaAlimentoViewModel { DietaId = dietaId, Alimentos = new List<AlimentoViewModel>(), QuantidadedeGramas = 150m }
+            new DietaAlimentoViewModel { DietaId = dietaId, Alimento = new AlimentoViewModel(), QuantidadeGramas = 100m },
+            new DietaAlimentoViewModel { DietaId = dietaId, Alimento = new AlimentoViewModel(), QuantidadeGramas = 150m }
 
         };
 
@@ -52,6 +52,6 @@ public class GetAlimentosByDietaQueryHandlerTests
         Assert.NotNull(result);
         Assert.Equal(dietaAlimentosViewModel.Count(), result.Count());
         Assert.All(result, item => Assert.Equal(dietaId, item.DietaId));
-        Assert.All(result, item => Assert.True(item.QuantidadedeGramas.HasValue));
+        Assert.All(result, item => Assert.True(item.QuantidadeGramas.HasValue));
     }
 }

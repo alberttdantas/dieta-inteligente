@@ -1,35 +1,30 @@
 ﻿using AutoMapper;
+using DietaInteligente.Application.Queries.DietasAlimentos.GetById;
 using DietaInteligente.Application.ViewModels;
 using DietaInteligente.Domain.Repositories;
 using MediatR;
 
-namespace DietaInteligente.Application.Queries.DietasAlimentos.GetById
+public class GetAlimentosByDietaQueryHandler : IRequestHandler<GetDietaAlimentoByIdQuery, IEnumerable<DietaAlimentoViewModel>>
 {
-    public class GetAlimentosByDietaQueryHandler : IRequestHandler<GetDietaAlimentoByIdQuery, IEnumerable<DietaAlimentoViewModel>>
+    private readonly IMapper _mapper;
+    private readonly IDietaAlimentoRepository _dietaAlimentoRepository;
+
+    public GetAlimentosByDietaQueryHandler(IMapper mapper, IDietaAlimentoRepository dietaAlimentoRepository)
     {
-        private readonly IMapper _mapper;
-        private readonly IDietaAlimentoRepository _dietaAlimentoRepository;
+        _mapper = mapper;
+        _dietaAlimentoRepository = dietaAlimentoRepository;
+    }
 
-        public GetAlimentosByDietaQueryHandler(IMapper mapper, IDietaAlimentoRepository dietaAlimentoRepository)
+    public async Task<IEnumerable<DietaAlimentoViewModel>> Handle(GetDietaAlimentoByIdQuery request, CancellationToken cancellationToken)
+    {
+        var dietaAlimentos = await _dietaAlimentoRepository.BuscarAlimentosPorDietaAsync(request.DietaId);
+        var dietaAlimentoViewModels = dietaAlimentos.Select(da => new DietaAlimentoViewModel
         {
-            _mapper = mapper;
-            _dietaAlimentoRepository = dietaAlimentoRepository;
-        }
+            DietaId = da.DietaId,
+            Alimento = _mapper.Map<AlimentoViewModel>(da.Alimentos),
+            QuantidadeGramas = da.QuantidadeGramas
+        }).ToList();
 
-        public async Task<IEnumerable<DietaAlimentoViewModel>> Handle(GetDietaAlimentoByIdQuery request, CancellationToken cancellationToken)
-        {
-            var dietaAlimentos = await _dietaAlimentoRepository.BuscarAlimentosPorDietaAsync(request.DietaId);
-            var dietaAlimentoViewModels = dietaAlimentos.Select(da => new DietaAlimentoViewModel
-            {
-                DietaId = da.DietaId,
-                Alimentos = new List<AlimentoViewModel>
-                {
-                    _mapper.Map<AlimentoViewModel>(da.Alimentos)
-                },
-                QuantidadedeGramas = da.QuantidadeGramas
-            }).ToList();
-
-            return dietaAlimentoViewModels;
-        }
+        return dietaAlimentoViewModels;
     }
 }

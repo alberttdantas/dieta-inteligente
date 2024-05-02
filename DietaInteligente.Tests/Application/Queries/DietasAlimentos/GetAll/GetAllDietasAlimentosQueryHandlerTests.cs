@@ -34,8 +34,8 @@ public class GetAllDietasAlimentosQueryHandlerTests
 
         var dietasAlimentosViewModel = new List<DietaAlimentoViewModel>
         {
-            new DietaAlimentoViewModel { DietaId = 1, QuantidadedeGramas = 200, Alimentos = new List<AlimentoViewModel>() },
-            new DietaAlimentoViewModel { DietaId = 2, QuantidadedeGramas = 200, Alimentos = new List<AlimentoViewModel>() }
+            new DietaAlimentoViewModel { DietaId = 1, QuantidadeGramas = 200, Alimento = new AlimentoViewModel() },
+            new DietaAlimentoViewModel { DietaId = 2, QuantidadeGramas = 200, Alimento = new AlimentoViewModel() }
         };
 
         _dietaAlimentoRepositoMock.Setup(repo => repo.BuscarDietasAlimentosAsync()).ReturnsAsync(dietasAlimentos);

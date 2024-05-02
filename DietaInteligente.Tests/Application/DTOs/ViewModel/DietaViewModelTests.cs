@@ -13,15 +13,15 @@ public class DietaViewModelTests
         {
             new DietaAlimentoViewModel
             {
-                QuantidadedeGramas = 100m
+                QuantidadeGramas = 100m
             },
             new DietaAlimentoViewModel
             {
-                QuantidadedeGramas = 100m
+                QuantidadeGramas = 100m
             },
             new DietaAlimentoViewModel
             {
-                QuantidadedeGramas = 100m
+                QuantidadeGramas = 100m
             }
         };
 
