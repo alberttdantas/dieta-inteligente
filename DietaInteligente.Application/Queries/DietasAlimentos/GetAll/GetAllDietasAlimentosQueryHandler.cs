@@ -19,7 +19,7 @@ public class GetAllDietasAlimentosQueryHandler : IRequestHandler<GetAllDietasAli
 
     public async Task<IEnumerable<DietaAlimentoViewModel>> Handle(GetAllDietasAlimentosQuery request, CancellationToken cancellationToken)
     {
-        var dietaAlimento = await _dietaAlimentoRepository.BuscarDietasAlimentosAsync();
-        return _mapper.Map<IEnumerable<DietaAlimentoViewModel>>(dietaAlimento);
+        var dietaAlimentos = await _dietaAlimentoRepository.BuscarDietasAlimentosAsync();
+        return _mapper.Map<IEnumerable<DietaAlimentoViewModel>>(dietaAlimentos);
     }
 }

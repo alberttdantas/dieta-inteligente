@@ -37,13 +37,13 @@ public class DietaAlimentoViewModelTests
         var dietaAlimentoViewModel = new DietaAlimentoViewModel
         {
             DietaId = dietaViewModel.Id,
-            Alimentos = new List<AlimentoViewModel> { alimentoViewModel },
-            QuantidadedeGramas = 150m
+            Alimento = alimentoViewModel,
+            QuantidadeGramas = 150m
         };
 
         // Act
         var dietaId = dietaAlimentoViewModel.DietaId;
-        var quantidadeGramas = dietaAlimentoViewModel.QuantidadedeGramas;
+        var quantidadeGramas = dietaAlimentoViewModel.QuantidadeGramas;
 
         // Assert
         Assert.Equal(1, dietaId);
