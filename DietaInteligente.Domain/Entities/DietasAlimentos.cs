@@ -16,6 +16,11 @@ public class DietaAlimento
         AlimentoId = alimentoId;
     }
 
+    public DietaAlimento()
+    {
+        
+    }
+
     public int DietaId { get; set; }
     public Dieta Dietas { get; set; }
     public int AlimentoId { get; set; }

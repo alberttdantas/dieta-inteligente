@@ -36,7 +36,7 @@ public class AlimentosController : ControllerBase
         var query = new GetAlimentoByIdQuery(id);
         var alimento = await _mediator.Send(query);
         if (alimento == null)
-            return NotFound();
+            return NotFound($"Nenhum alimento encontrado com o ID {id}.");
 
         return Ok(alimento);
     }
