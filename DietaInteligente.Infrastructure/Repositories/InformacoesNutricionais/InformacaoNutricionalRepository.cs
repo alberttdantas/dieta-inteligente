@@ -24,7 +24,7 @@ public class InformacaoNutricionalRepository : IInformacaoNutricionalRepository
     {
         if (id == null)
             throw new ArgumentNullException(nameof(id));
-s
+
         return await _dbContext.Set<InformacaoNutricional>().FindAsync(id);
     }
 
