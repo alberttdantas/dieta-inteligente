@@ -4,6 +4,7 @@ using DietaInteligente.Application.Commands.Usuarios.Update;
 using DietaInteligente.Application.InputModels;
 using DietaInteligente.Application.Queries.Usuarios.GetAll;
 using DietaInteligente.Application.Queries.Usuarios.GetById;
+using DietaInteligente.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -34,7 +35,7 @@ public class UsuariosController : ControllerBase
         var query = new GetUsuarioByIdQuery(id);
         var usuario = await _mediator.Send(query);
         if (usuario == null)
-            return NotFound();
+            return NotFound($"Nenhuma usuario encontrado com o ID {id}.");
 
         return Ok(usuario);
     }

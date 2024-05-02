@@ -34,7 +34,7 @@ public class DietasController : ControllerBase
         var query = new GetDietaByIdQuery(id);
         var dieta = await _mediator.Send(query);
         if (dieta == null)
-            return NotFound();
+            return NotFound($"Nenhuma dieta encontrada com o ID {id}.");
 
         return Ok(dieta);
     }

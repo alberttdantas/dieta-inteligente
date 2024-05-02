@@ -23,9 +23,7 @@ public class UsuarioRepository : IUsuarioRepository
     public async Task<Usuario> BuscarUsuarioAsync(int id)
     {
         if (id == null)
-        {
             throw new ArgumentNullException(nameof(id));
-        }
 
         return await _dbContext.Set<Usuario>().FindAsync(id);
     }
@@ -33,9 +31,7 @@ public class UsuarioRepository : IUsuarioRepository
     public async Task<bool> CriarUsuarioAsync(Usuario usuario)
     {
         if (usuario == null)
-        {
             throw new ArgumentNullException(nameof(usuario));
-        }
 
         _dbContext.Set<Usuario>().Add(usuario);
         return await _dbContext.SaveChangesAsync() > 0;
@@ -44,9 +40,7 @@ public class UsuarioRepository : IUsuarioRepository
     public async Task<bool> DeletarUsuarioAsync(Usuario usuario)
     {
         if (usuario == null)
-        {
             throw new ArgumentNullException(nameof(usuario));
-        }
 
         _dbContext.Set<Usuario>().Remove(usuario);
         return await _dbContext.SaveChangesAsync() > 0;
@@ -55,9 +49,7 @@ public class UsuarioRepository : IUsuarioRepository
     public async Task<bool> AtualizarUsuarioAsync(Usuario usuario)
     {
         if (usuario == null)
-        {
             throw new ArgumentNullException(nameof(usuario));
-        }
 
         _dbContext.Entry(usuario).State = EntityState.Modified;
         return await _dbContext.SaveChangesAsync() > 0;

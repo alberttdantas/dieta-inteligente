@@ -23,19 +23,15 @@ public class InformacaoNutricionalRepository : IInformacaoNutricionalRepository
     public async Task<InformacaoNutricional> BuscarInformacaoNutricionalAsync(int id)
     {
         if (id == null)
-        {
             throw new ArgumentNullException(nameof(id));
-        }
-
+s
         return await _dbContext.Set<InformacaoNutricional>().FindAsync(id);
     }
 
     public async Task<bool> CriarInformacaoNutricionalAsync(InformacaoNutricional informacaoNutricional)
     {
         if (informacaoNutricional == null)
-        {
             throw new ArgumentNullException(nameof(informacaoNutricional));
-        }
 
         _dbContext.Set<InformacaoNutricional>().Add(informacaoNutricional);
         return await _dbContext.SaveChangesAsync() > 0;
@@ -44,9 +40,7 @@ public class InformacaoNutricionalRepository : IInformacaoNutricionalRepository
     public async Task<bool> DeletarInformacaoNutricionalAsync(InformacaoNutricional informacaoNutricional)
     {
         if (informacaoNutricional == null)
-        {
             throw new ArgumentNullException(nameof(informacaoNutricional));
-        }
 
         _dbContext.Set<InformacaoNutricional>().Remove(informacaoNutricional);
         return await _dbContext.SaveChangesAsync() > 0;
@@ -55,9 +49,7 @@ public class InformacaoNutricionalRepository : IInformacaoNutricionalRepository
     public async Task<bool> AtualizarInformacaoNutricionalAsync(InformacaoNutricional informacaoNutricional)
     {
         if (informacaoNutricional == null)
-        {
             throw new ArgumentNullException(nameof(informacaoNutricional));
-        }
 
         _dbContext.Entry(informacaoNutricional).State = EntityState.Modified;
         return await _dbContext.SaveChangesAsync() > 0;

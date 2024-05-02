@@ -35,7 +35,7 @@ public class InformacoesNutricionaisController : ControllerBase
         var query = new GetInformacaoNutricionalByIdQuery(id);
         var informacaoNutricional = await _mediator.Send(query);
         if (informacaoNutricional == null)
-            return NotFound();
+            return NotFound($"Nenhuma informação nutricional encontrada com o ID {id}.");
 
         return Ok(informacaoNutricional);
     }

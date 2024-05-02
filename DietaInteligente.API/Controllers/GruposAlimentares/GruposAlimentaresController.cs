@@ -34,8 +34,8 @@ public class GruposAlimentaresController : ControllerBase
     {
         var query = new GetGrupoAlimentarByIdQuery(id);
         var grupoAlimentar = await _mediator.Send(query);
-        if (grupoAlimentar != null)
-            return NotFound();
+        if (grupoAlimentar == null)
+            return NotFound($"Nenhum grupo alimentar encontrado com o ID {id}.");
 
         return Ok(grupoAlimentar);
     }

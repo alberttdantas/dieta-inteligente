@@ -33,7 +33,7 @@ public class RestricoesDieteticasController : ControllerBase
         var query = new GetRestricoesDieteticasByIdQuery(usuarioId);
         var restricaoDietetica = await _mediator.Send(query);
         if (restricaoDietetica == null)
-            return NotFound();
+            return NotFound($"Nenhuma restrição dietetica encontrado com o ID {usuarioId}.");
 
         return Ok(restricaoDietetica);
     }

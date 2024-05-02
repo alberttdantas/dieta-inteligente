@@ -18,9 +18,7 @@ public class RestricaoDieteticaRepository : IRestricaoDieteticaRepository
     public async Task<bool> AssociarRestricaoDieteticaAsync(RestricaoDietetica restricaoDietetica)
     {
         if (restricaoDietetica == null)
-        {
             throw new ArgumentNullException(nameof(restricaoDietetica));
-        }
 
         try
         {
@@ -46,9 +44,7 @@ public class RestricaoDieteticaRepository : IRestricaoDieteticaRepository
     public async Task<bool> DesassociarRestricaoDieteticaAsync(RestricaoDietetica restricaoDietetica)
     {
         if (restricaoDietetica == null)
-        {
             throw new ArgumentNullException(nameof(restricaoDietetica));
-        }
 
         try
         {
@@ -56,11 +52,8 @@ public class RestricaoDieteticaRepository : IRestricaoDieteticaRepository
                 .FirstOrDefaultAsync(rd => rd.UsuarioId == restricaoDietetica.UsuarioId && rd.GrupoAlimentarId == restricaoDietetica.GrupoAlimentarId);
 
             if (existingAssociation != null)
-            {
                 _dbContext.Set<RestricaoDietetica>().Remove(existingAssociation);
                 return await _dbContext.SaveChangesAsync() > 0;
-            }
-            return false;
         }
         catch (Exception)
         {
